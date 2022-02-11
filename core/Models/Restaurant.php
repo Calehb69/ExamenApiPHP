@@ -47,6 +47,19 @@ class Restaurant extends AbstractModel implements \JsonSerializable
         $this->city = $city;
     }
 
+    public function save(Restaurant $restaurant)
+    {
+        $sql = $this->pdo->prepare("INSERT INTO {$this->nomDeLaTable}
+                (name, adress, city) VALUES (:name, :adress, :city)
+        ");
+        $sql->execute([
+            "name"=>$restaurant->name ,
+            "adress"=>$restaurant->adress,
+            "city"=>$restaurant->city
+        ]);
+
+    }
+
     public function jsonSerialize():mixed
     {
         return[
