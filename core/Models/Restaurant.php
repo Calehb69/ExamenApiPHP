@@ -2,7 +2,7 @@
 
 namespace Models;
 
-class Restaurant extends AbstractModel
+class Restaurant extends AbstractModel implements \JsonSerializable
 {
     protected string $nomDeLaTable = "restaurant";
 
@@ -32,7 +32,7 @@ class Restaurant extends AbstractModel
         return $this->adress;
     }
 
-    public function setBrand($adress)
+    public function setAdress($adress)
     {
         $this->adress = $adress;
     }
@@ -45,6 +45,17 @@ class Restaurant extends AbstractModel
     public function setCity($city)
     {
         $this->city = $city;
+    }
+
+    public function jsonSerialize():mixed
+    {
+        return[
+            "id" => $this->id,
+            "name"=> $this->name,
+            "adress"=> $this->adress,
+            "city"=> $this->city,
+        ];
+
     }
 
 }
