@@ -13,7 +13,7 @@ class Restaurant extends AbstractController
 
     public function new()
     {
-        $request = $this->post('json', ['name'=>'text', 'adress'=>'text', 'city'=>'text']);
+        $request = $this->post('json', ['name'=>'text', 'address'=>'text', 'city'=>'text']);
 
         if(!$request){
             return $this->json('formulaire mal soumis');
@@ -22,7 +22,7 @@ class Restaurant extends AbstractController
 
         $restaurant = new \Models\Restaurant();
         $restaurant->setName($request['name']);
-        $restaurant->setAdress($request['adress']);
+        $restaurant->setAdress($request['address']);
         $restaurant->setCity($request['city']);
         $this->defaultModel->save($restaurant);
 

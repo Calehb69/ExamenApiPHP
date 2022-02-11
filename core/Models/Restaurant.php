@@ -8,7 +8,7 @@ class Restaurant extends AbstractModel implements \JsonSerializable
 
     protected $id;
     protected $name;
-    protected $adress;
+    protected $address;
     protected $city;
 
     public function getId()
@@ -27,14 +27,14 @@ class Restaurant extends AbstractModel implements \JsonSerializable
         $this->name = $name;
     }
 
-    public function getAdress()
+    public function getAddress()
     {
         return $this->adress;
     }
 
-    public function setAdress($adress)
+    public function setAddress($address)
     {
-        $this->adress = $adress;
+        $this->address = $address;
     }
 
     public function getCity()
@@ -50,11 +50,11 @@ class Restaurant extends AbstractModel implements \JsonSerializable
     public function save(Restaurant $restaurant)
     {
         $sql = $this->pdo->prepare("INSERT INTO {$this->nomDeLaTable}
-                (name, adress, city) VALUES (:name, :adress, :city)
+                (name, address, city) VALUES (:name, :address, :city)
         ");
         $sql->execute([
             "name"=>$restaurant->name ,
-            "adress"=>$restaurant->adress,
+            "address"=>$restaurant->address,
             "city"=>$restaurant->city
         ]);
 
@@ -65,7 +65,7 @@ class Restaurant extends AbstractModel implements \JsonSerializable
         return[
             "id" => $this->id,
             "name"=> $this->name,
-            "adress"=> $this->adress,
+            "address"=> $this->address,
             "city"=> $this->city,
         ];
 
