@@ -17,7 +17,7 @@ class PdoMySQL
 
      if(self::$currentPdo === null){
 
-         self::$currentPdo = new \PDO("mysql:host=localhost;dbname=NOMDELADATABASE;charset=utf8", "NOMUTILISATEUR","PASSWORD", [
+         self::$currentPdo = new \PDO("mysql:host=localhost;dbname=examenapi;charset=utf8", "Bocuse","gourmet", [
              \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
              \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ
          ]);
