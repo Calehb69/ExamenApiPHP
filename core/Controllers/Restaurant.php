@@ -22,7 +22,7 @@ class Restaurant extends AbstractController
 
         $restaurant = new \Models\Restaurant();
         $restaurant->setName($request['name']);
-        $restaurant->setAdress($request['address']);
+        $restaurant->setAddress($request['address']);
         $restaurant->setCity($request['city']);
         $this->defaultModel->save($restaurant);
 

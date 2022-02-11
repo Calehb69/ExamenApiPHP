@@ -29,7 +29,7 @@ class Restaurant extends AbstractModel implements \JsonSerializable
 
     public function getAddress()
     {
-        return $this->adress;
+        return $this->address;
     }
 
     public function setAddress($address)
